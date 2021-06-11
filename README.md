@@ -10,19 +10,17 @@ yaytd allows you to run localhost HTTP server that will serve yt-dl API ***and**
 ## Installation: Full Walkthrough
 
 ### Prerequisites
-Make sure you have **all** of the following (items marked with `*` are optional):
+Make sure you have **all** of the following:
 1. Windows OS (Linux is unsupported until our Batch scripts are ported to PowerShell/Bash)
 2. [NodeJS](https://nodejs.org/en/download/) (v14.17.0 or higher)
 3. [git](https://git-scm.com/download/win) (v2.32.0 or higher)
-4. ~~GitHub CLI~~ (v1.11.0 or higher) `*`
-5. [GitHub account](https://github.com/join) (it is free)
+4. [GitHub account](https://github.com/join) (it is free)
 
 To enjoy the full power of yaytd, I would suggest to get optional stuff as well.
 
 If you had already installed some of the software listed above, please make sure to check your installed version by running (in Command Prompt or Terminal):  
 - For Node: `node --version`  
 - For git: `git --version`  
-- For GitHub CLI: `gh --version`  
 
 
 ### Setup
@@ -38,6 +36,14 @@ This is one-time process (you would only need to do this only once):
 
 ### Startup
 From this point onwards, launching yaytd is as simple as running `!START` batch script (double-click it).  
+<details>
+<summary>If this is your first time using NodeJS application, click here to see extra step.</summary>
+
+You may receive Windows Firewall popup which looks like this:  
+![Windows Firewall](https://user-images.githubusercontent.com/13347909/121682618-98229e00-cabc-11eb-95a7-2ac578da98aa.png)  
+Just click `Allow access` button. (It may prompt for UAC, but you would just need to do this only once.)
+</details>
+
 If you done everything correctly, local HTTP server should be operating at this point.  
 By default configuration, HTTP server will try to use the port number `60999`.  
 To quickly test it, click this example GET link in your webbrowser:  
