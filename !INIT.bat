@@ -19,6 +19,8 @@ if exist %CACHE_DIR% (
     popd
 )
 
+npm install
+
 :end
 echo Press any key to end...
 pause >nul

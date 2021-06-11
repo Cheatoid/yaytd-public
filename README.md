@@ -35,7 +35,8 @@ For GitHub CLI: `gh --version`
 ### Setup
 To get started, you would need to clone/download this repository to your computer. This should be straightforward, open up Command Prompt or Terminal, and then enter the following:  
     `git clone https://github.com/Cheatoid/yaytd-public`  
-Or alternatively, [download the ZIP file](https://github.com/Cheatoid/yaytd-public/archive/refs/heads/main.zip) and extract it on your computer.  
+~~Or alternatively, [download the ZIP file](https://github.com/Cheatoid/yaytd-public/archive/refs/heads/main.zip) and extract it on your computer.~~  
+**Warning**: Using "ZIP download" approach WILL NOT work; you have to use git clone approach instead.   
 At this point you should have yaytd downloaded on your computer.  
 
 #### Initialization / Cache Subsystem
