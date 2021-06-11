@@ -12,6 +12,7 @@ yaytd allows you to run localhost HTTP server that will serve yt-dl API ***and**
 ### Prerequisites
 Make sure you have **all** of the following:
 1. [NodeJS](https://nodejs.org/en/download/) (v14.17.0 or higher)
+2. [PowerShell](https://github.com/PowerShell/PowerShell/releases/latest) / [Win10Store](https://www.microsoft.com/en-us/p/powershell/9mz1snwt0n5d) (v7.1.3 or higher)
 2. [Dropbox](https://www.dropbox.com/downloading)
 3. [Dropbox account](https://www.dropbox.com/register) (it is free)
 
@@ -51,6 +52,14 @@ It will fetch *and* download [this YouTube audio](https://www.youtube.com/watch?
 
 ### Bonus Stuff
 Occasionally, youtube-dl will become outdated, simply run the `.\!yaytd.ps1 -update` to automatically update it to their latest released version.
+
+
+#### Direct Link
+In order to play music ingame (via scripting), you must obtain a direct link to particular audio file, on Windows you can right click on the file in your Dropbox `yaytd-cache` folder and then choose `Copy Dropbox link`.  
+Here are some URL examples of what you can expect to work (or not to work):  
+❌ `https://www.dropbox.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus?dl=0`  
+✔️ `https://www.dropbox.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus?dl=1`  
+✔️ `https://dl.dropboxusercontent.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus`  
 
 ...
 
