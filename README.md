@@ -51,7 +51,7 @@ To quickly test it, click this example GET link in your webbrowser:
 http://localhost:60999/fetch/?url=bM7SZ5SBzyY&download=1  
 It will fetch *and* download [this YouTube audio](https://www.youtube.com/watch?v=bM7SZ5SBzyY) into your local cache folder, therefore subsequent HTTP request (for the same YouTube audio) will be much faster.
 
-If you wish to upload/sync your cache, simply run the `!PUSH` batch script (double-click it). (The predicted URL will be printed into console. But, this step is required in order to actually obtain githubusercontent link, so you could use it to play it ingame.)
+If you wish to upload/sync your cache, simply run the `!PUSH` batch script (double-click it). (The predicted URL will be printed into console. But, this step is required in order to actually obtain githubusercontent link, which you can then use to play it ingame via E2/SF/etc scripting.)
 
 ### Bonus Stuff
 Occasionally, youtube-dl will become outdated, simply run the `!UPDATE-YTDL` batch script to automatically update it to their latest released version.
