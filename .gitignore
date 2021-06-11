@@ -141,5 +141,4 @@ temp/
 /.idea/
 
 ### Custom ###
-/yaytd-cache-repository/
-/remote.txt
+/yaytd-cache/
