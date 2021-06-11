@@ -142,3 +142,5 @@ temp/
 
 ### Custom ###
 /yaytd-cache/
+/ThirdParty/**
+*.exe

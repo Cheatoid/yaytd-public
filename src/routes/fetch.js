@@ -7,7 +7,7 @@ const CACHE_DIR = '../yaytd-cache/';
 const YouTubeLinkRegex = /^((?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=)))?(?<id>[\w-]{11})$/;
 const IPRegex = /ip=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/g;
 const NoIP = 'ip=0.0.0.0';
-const YouTubeDL = '../ThirdParty/youtube-dl.exe';
+const YouTubeDL = '../ThirdParty/youtube-dl';
 const CommonArgs = [
   '--format', 'bestaudio[ext=webm]',
   '--audio-format', 'best',
