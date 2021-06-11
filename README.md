@@ -13,29 +13,21 @@ yaytd allows you to run localhost HTTP server that will serve yt-dl API ***and**
 Make sure you have **all** of the following (items marked with `*` are optional):
 1. Windows OS (Linux is unsupported until our Batch scripts are ported to PowerShell/Bash)
 2. [NodeJS](https://nodejs.org/en/download/) (v14.17.0 or higher)
-3. ~~git~~ (v2.32.0 or higher) `*`
+3. [git](https://git-scm.com/download/win) (v2.32.0 or higher)
 4. ~~GitHub CLI~~ (v1.11.0 or higher) `*`
-5. [GitHub account](https://github.com/join) (it is free) `*`
+5. [GitHub account](https://github.com/join) (it is free)
 
 To enjoy the full power of yaytd, I would suggest to get optional stuff as well.
 
-<details>
-<summary>([ git & GitHub CLI, click to expand details ])</summary>
+If you had already installed some of the software listed above, please make sure to check your installed version by running (in Command Prompt or Terminal):  
+- For Node: `node --version`  
+- For git: `git --version`  
+- For GitHub CLI: `gh --version`  
 
-Optional software has been included/bundled by default, so you don't have to download those on your own.  
-However, you would still need a GitHub account.  
-
-If you already have some of the software listed above, please make sure to check your installed version by running (in Command Prompt or Terminal):  
-For Node: `node --version`  
-For git: `git --version`  
-For GitHub CLI: `gh --version`  
-</details>
-<br>
 
 ### Setup
 To get started, you would need to clone/download this repository to your computer. This should be straightforward, open up Command Prompt or Terminal, and then enter the following:  
     `git clone https://github.com/Cheatoid/yaytd-public`  
-~~Or alternatively, [download the ZIP file](https://github.com/Cheatoid/yaytd-public/archive/refs/heads/main.zip) and extract it on your computer.~~  
 **Warning**: Using "ZIP download" approach WILL NOT work; you have to use git clone approach instead.   
 At this point you should have yaytd downloaded on your computer.  
 
