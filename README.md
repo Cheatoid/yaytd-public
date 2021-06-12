@@ -57,9 +57,9 @@ Occasionally, youtube-dl will become outdated, simply run the `.\!yaytd.ps1 -upd
 ### Direct Link
 In order to play music ingame (via scripting), you must obtain a direct link to particular audio file, on Windows you can right click on the file in your Dropbox `yaytd-cache` folder and then choose `Copy Dropbox link`.  
 Here are some URL examples of what you can expect to work (or not to work):  
-❌ `https://www.dropbox.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus?dl=0`  
-✔️ `https://www.dropbox.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus?dl=1`  
-✔️ `https://dl.dropboxusercontent.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus`  
+❌ `https://www.dropbox.com/s/e9ld2pt8z4wq4va/bM7SZ5SBzyY.webm?dl=0`  
+✔️ `https://www.dropbox.com/s/e9ld2pt8z4wq4va/bM7SZ5SBzyY.webm?dl=1`  
+✔️ `https://dl.dropboxusercontent.com/s/e9ld2pt8z4wq4va/bM7SZ5SBzyY.webm`  
 
 ...
 
