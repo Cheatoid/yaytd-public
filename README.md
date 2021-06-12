@@ -50,11 +50,11 @@ http://localhost:60999/fetch/?url=bM7SZ5SBzyY&download=1
 It will fetch *and* download [this YouTube audio](https://www.youtube.com/watch?v=bM7SZ5SBzyY) into your local cache folder, therefore subsequent HTTP request (for the same YouTube audio) will be much faster.
 
 
-### Bonus Stuff
+### Updating YTDL
 Occasionally, youtube-dl will become outdated, simply run the `.\!yaytd.ps1 -update` to automatically update it to their latest released version.
 
 
-#### Direct Link
+### Direct Link
 In order to play music ingame (via scripting), you must obtain a direct link to particular audio file, on Windows you can right click on the file in your Dropbox `yaytd-cache` folder and then choose `Copy Dropbox link`.  
 Here are some URL examples of what you can expect to work (or not to work):  
 ❌ `https://www.dropbox.com/s/owbsdh8bbwuj7i4/bM7SZ5SBzyY.opus?dl=0`  

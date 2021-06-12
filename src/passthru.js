@@ -8,7 +8,7 @@ const passthru = async (exe, args, options) => {
         let output = '';
         child.stdout.setEncoding('utf8');
         child.stderr.setEncoding('utf8');
-        child.stdout.on('data', data => output += data);
+        child.stdout.on('data', chunk => output += chunk);
         child.stderr.on('data', data => console.error(data));
         child.on('error', error => reject(error));
         child.on('close', _ => resolve(output));
