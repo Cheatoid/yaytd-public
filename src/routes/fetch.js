@@ -1,13 +1,14 @@
 const express = require('express');
-const fs = require('fs');
 const router = express.Router();
-const https = require('https');
-const Stream = require('stream').Transform;
+const fs = require('fs');
+const path = require('path');
 const fetch = require('node-fetch');
 const passthru = require('../passthru');
 
-const CacheFolder = __dirname + '/../../yaytd-cache/';
-const YouTubeDL = __dirname + '/../../ThirdParty/youtube-dl';
+const CacheFolder = path.normalize(path.join(__dirname, '..', '..', 'yaytd-cache'));
+const ThirdPartyFolder = path.normalize(path.join(__dirname, '..', '..', 'ThirdParty'));
+const YouTubeDL = path.join(ThirdPartyFolder, 'youtube-dl');
+const ffmpeg = 'ffmpeg'; //path.join(ThirdPartyFolder, 'ffmpeg');
 const YTDLArgs = [
   '--format', 'bestaudio[ext=webm]',
   '--audio-format', 'best',
@@ -22,45 +23,24 @@ const YouTubeLinkRegex = /^((?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.co
 const IPRegex = /ip=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/g;
 const NoIP = 'ip=0.0.0.0';
 
-const StreamHttpToFile = (url, dest, retries = 3, backoff = 1000) => {
-  const retryCodes = [408, 500, 502, 503, 504, 522, 524];
-  return new Promise((resolve, reject) => {
-    const req = https.get(url, res => {
-      const {statusCode} = res;
-      if (statusCode < 200 || statusCode > 299) {
-        if (retries > 0 && retryCodes.includes(statusCode)) {
-          setTimeout(() => StreamHttpToFile(url, retries - 1, backoff * 2), backoff);
-        } else {
-          reject();
-        }
-      } else {
-        const data = new Stream();
-        res.on('data', chunk => data.push(chunk));
-        res.on('end', () => {
-          fs.writeFileSync(dest, data.read());
-          resolve();
-        });
-        // const file = fs.createWriteStream(dest);
-        // res.pipe(file);
-        // //file.on('finish', () => file.close(resolve));
-        // file.on('close', resolve);
-        // file.on('error', (_) => fs.unlink(file, reject));
-      }
-    }).on('error', (_) => reject());
-    //req.setTimeout(60000, () => req.abort());
-    req.end();
-  });
+const ffmpegCreateArgs = (filename) => {
+  return [
+    '-i', filename,
+    '-vn',
+    '-c:a', 'libmp3lame',
+    path.join(path.dirname(filename), path.basename(filename, path.extname(filename)) + '.mp3')
+  ];
 };
 
 router.get('/', async (req, res) => {
-  const {url, download} = req.query;
+  const {url, download, mp3} = req.query;
   const match = url.match(YouTubeLinkRegex);
   if (!match) {
     res.send({'error': 'Invalid <url> query parameter'});
     return;
   }
   const {id} = match.groups;
-  const jsonCache = CacheFolder + id + '.json';
+  const jsonCache = path.join(CacheFolder, id + '.json');
   try {
     // Return cached data if available.
     res.send(fs.readFileSync(jsonCache, 'utf8'));
@@ -74,9 +54,8 @@ router.get('/', async (req, res) => {
       if (download === '1') {
         const downloadUrl = parsedJson.url;
         const extension = parsedJson.ext;
-        const audioCache = CacheFolder + id + '.' + extension;
+        const audioCache = path.join(CacheFolder, id + '.' + extension);
         if (!fs.existsSync(audioCache)) {
-          //await StreamHttpToFile(downloadUrl, audioCache);
           fetch(downloadUrl)
             .then(response => {
               if (response.ok) {
@@ -86,11 +65,15 @@ router.get('/', async (req, res) => {
             })
             .then(arrBuffer => {
               const buff = Buffer.from(arrBuffer);
-              fs.writeFile(audioCache, buff, 'binary', err => {
+              fs.writeFile(audioCache, buff, 'binary', async (err) => {
                 if (err) {
                   console.error('There has been a problem with writing a file:', err);
                 } else {
                   console.log('File has been written to disk:', audioCache);
+                  if (mp3 === '1') {
+                    await passthru(ffmpeg, ffmpegCreateArgs(audioCache));
+                    fs.unlinkSync(audioCache);
+                  }
                 }
               });
             })
